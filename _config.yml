@@ -13,8 +13,9 @@ theme_settings:
 
   # Header and footer text
   header_text: > #two or three lines to describe your site
-     <p>Climbing <code>&ltcode/&gt</code></p>
-  header_text_feature_image: assets/img/pexels/triangular.jpeg
+     <p>"Better we raise our skill than lower the climb."</p>
+     <br/> - Royal Robbins
+  header_text_feature_image: assets/img/sunset_over_rocks_hero.jpg
   footer_text: >
    Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/TyRawr/Type-on-Strap">Type on Strap</a>
 

@@ -163,7 +163,18 @@ img[align=left] {
 }
 
 img[align=right] {
-    margin-left: 3%;
+    margin-left: 3%; 
+}
+
+.img-2-col {  
+    max-width: 50%;
+    float: left;
+    padding: 0 11px 22px 11px;
+}
+
+.center {
+    margin: 0 auto;
+    display: block;
 }
 
 /* ---- Responsive ---- */
@@ -186,4 +197,16 @@ img[align=right] {
     code {
         font-size: 0.75em;
     }
+
+    img + img {
+        padding-top: 11px;
+    }
+
+    .img-2-col {
+        float: none;
+        padding: 0 10%;
+        max-width: 100%;
+    }
+
+
 }

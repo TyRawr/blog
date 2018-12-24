@@ -1,0 +1,83 @@
+---
+layout: post
+title: Greatest Common Denominator
+---
+
+<h3>An implementation of GCD - with The Euclidean Algorithm</h3>
+<p>This is an interactive generator for euclidian algorthm. You supply the input and the function will calculate the gcd and show it's work!</p>
+<p>Remember the algorithm is as follows: (with a > b)</p>
+<p>a = q * b + r</p>
+<p>Where q is the number of times you can subtract b from a. And r is the remainder. You then move b to the a placeholder and r into the b placeholder. Keep doing this until r is 0.</p>
+
+<br />
+<hr />
+a = <input type="textfield" id="left_number">
+<br />
+b = <input type="textfield" id="right_number">
+<br />
+<button onclick="gcd_driver();">
+  Calculate gcd
+</button>
+<hr />
+<ul id="result">
+  
+</ul>
+<script>
+
+  var statements = [];
+
+  var gcd_driver = function() {
+    var result = $('#result').text("");
+    statements = [];
+
+    var left_number = document.getElementById("left_number");
+    var right_number = document.getElementById("right_number");
+    console.log("left: " + left_number.value);
+    console.log("right: " + right_number.value);
+    var gcd_val = gcd(parseInt(left_number.value),parseInt(right_number.value));
+    printStatements(left_number.value,right_number.value,gcd_val);
+  };
+
+  var gcd = function(a, b) {
+    if(a<b) 
+      return gcd(b,a);
+    else {
+      var q = findMultiple(a,b);
+
+      var r = a - q*b; 
+      var v = a + ' = ' + q + ' * ' + b + ' + ' + r ;
+      console.log(v);
+      addToStatements(v);
+      if(r !== 0)
+        return gcd(b,r);
+      else
+        return b;
+    }
+    //console.log('ret');
+  };
+
+  var findMultiple = function(a,b) {
+    var q = 2;
+    while(a >= b*q) {
+      q++;
+    }
+    //console.log("r :: " + (a - (q-1)*b) );
+    return q-1;
+  }
+
+  var printStatements = function(a,b,gcd_val) {
+    $('#result').text("");
+    for(var i = 0; i < statements.length; i++) {
+      var li = document.createElement('li');
+      li.append(statements[i]);
+      $('#result').append('<p>'+ statements[i] + '</p>');
+    }
+    $('#result').append('<p>gcd(' + a + ',' + b + ') = '+ gcd_val + '</p>');
+    statements = [];
+  }
+
+  var addToStatements = function(s) {
+    statements.push(s);
+  };
+
+</script>
